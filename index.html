@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Management System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Employee</h1>
+        </div>
+        <div class="content">
+            <div class="form-section">
+                <div class="section-header">Add Employee</div>
+                <form id="employeeForm">
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" placeholder="Enter name" required>
+                        <div class="error-message" id="nameError"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Gender:</label>
+                        <div class="radio-group">
+                            <div class="radio-item">
+                                <input type="radio" id="gender-male" name="gender" value="Male" checked required>
+                                <label for="gender-male">Male</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="gender-female" name="gender" value="Female" required>
+                                <label for="gender-female">Female</label>
+                            </div>
+                        </div>
+                        <div class="error-message" id="genderError"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="dob">Date of birth:</label>
+                        <input type="text" id="dob" name="dob" placeholder="mm/dd/yyyy" required>
+                        <div class="error-message" id="dobError"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" placeholder="Enter email" required>
+                        <div class="error-message" id="emailError"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone:</label>
+                        <input type="tel" id="phone" name="phone" placeholder="Enter phone">
+                        <div class="error-message" id="phoneError"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Hobbies:</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="hobby-cricket" name="hobbies" value="Cricket">
+                                <label for="hobby-cricket">Cricket</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="hobby-chess" name="hobbies" value="Chess">
+                                <label for="hobby-chess">Chess</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="hobby-music" name="hobbies" value="Music">
+                                <label for="hobby-music">Music</label>
+                            </div>
+                        </div>
+                        <div class="error-message" id="hobbiesError"></div>
+                    </div>
+
+                    <button type="submit" class="btn">Submit</button>
+                </form>
+            </div>
+
+            <div class="display-section">
+                <h2 class="section-title">Basic</h2>
+                <div class="table-container">
+                    <div class="table-header">Display</div>
+                    <table id="basicTable" class="responsive-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Gender</th>
+                                <th>DOB</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Hobbies</th>
+                            </tr>
+                        </thead>
+                        <tbody id="basicTableBody">
+                            <tr>
+                                <td colspan="6" class="no-data">No employees</td>
+                            </tr>
+                        </tbody>
+                    </table>    
+
+
+                </div>
+            </div>
+
+            <div class="display-section">
+                <h2 class="section-title">Advanced</h2>
+                <div class="table-container">
+                    <div class="table-header">Display</div>
+                    <div id="advancedTableContainer">
+                        <div class="no-data">No employees.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
