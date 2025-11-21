@@ -1,4 +1,3 @@
-
 function validateName(name) {
     const namemethod= /^[a-zA-Z0-9]{4,20}$/;
     if (!name || name.trim() === '') {
@@ -116,7 +115,7 @@ function BasicTable() {
         { label: 'Phone', value: emp => emp.phone || '-' },
         { label: 'Hobbies', value: emp => (emp.hobbies && emp.hobbies.length > 0 ? emp.hobbies.join(', ') : '-') }
     ];
-    
+
 
     tbody.innerHTML = employees.map((employee) => `
         <tr> 
@@ -183,8 +182,6 @@ function escapeHtml(text) {
 
 document.getElementById('employeeForm').addEventListener('submit', function(e) {
     e.preventDefault();
-
-
     const name = document.getElementById('name').value.trim();
     const gender = document.querySelector('input[name="gender"]:checked')?.value || '';
     const dob = document.getElementById('dob').value.trim();
@@ -249,15 +246,13 @@ clearError('email', 'emailError'); clearError('phone', 'phoneError');
 
 
     document.getElementById('gender-male').checked = true;
+    document.getElementById('name').value = '';
+    document.getElementById('dob').value = '';
+    document.getElementById('email').value = '';
+    document.getElementById('phone').value = '';
+    document.querySelectorAll('input[name="hobbies"]:checked').forEach(cb => cb.checked = false);
     displayEmployees();
 
 
     alert('Employee added successfully!');
 });
-
-displayEmployees();
-
-
-
-
-
