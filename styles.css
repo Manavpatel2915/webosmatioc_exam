@@ -7,7 +7,7 @@ body{
 }
 .container{
     max-width:960px;
-    margin:0 auto;
+    margin: auto;
     background:#fff;
     border:1px solid #d8dde6;
     border-radius:6px;

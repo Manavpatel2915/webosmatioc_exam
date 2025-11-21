@@ -8,7 +8,7 @@ function validateName(name) {
         return { valid: false, message: 'name in range to 4to 20' };
     }
     return { valid: true };
-}
+}   
 
 function validateGender(gender) {
     if (!gender) {
@@ -19,12 +19,10 @@ function validateGender(gender) {
     }
     return { valid: true };
 }
-
 function validateDOB(dob) {
     if (!dob || dob.trim() === '') {
         return { valid: false, message: 'Dob, required' };
     }
-
     const datemethod = /^(\d{2})\/(\d{2})\/(\d{4})$/;
     const match = dob.match(datemethod);
     if (!match) {
@@ -33,6 +31,7 @@ function validateDOB(dob) {
     const month = parseInt(match[1], 10);
     const day = parseInt(match[2], 10);
     const year = parseInt(match[3], 10);
+
 
     if (month < 1 || month > 12) {
         return { valid: false, message: 'Invalid month' };
@@ -81,7 +80,6 @@ function showError(fieldId, errorId, message) {
         errorDiv.classList.add('show');
     }
 }
-
 function clearError(fieldId, errorId) {
     const field = document.getElementById(fieldId);
     const errorDiv = document.getElementById(errorId);
@@ -113,10 +111,12 @@ function BasicTable() {
         { label: 'Name', value: emp => emp.name || '-' },
         { label: 'Gender', value: emp => emp.gender || '-' },
         { label: 'DOB', value: emp => emp.dob || '-' },
+
         { label: 'Email', value: emp => emp.email || '-' },
         { label: 'Phone', value: emp => emp.phone || '-' },
         { label: 'Hobbies', value: emp => (emp.hobbies && emp.hobbies.length > 0 ? emp.hobbies.join(', ') : '-') }
     ];
+    
 
     tbody.innerHTML = employees.map((employee) => `
         <tr> 
@@ -158,7 +158,7 @@ function AdvancedTable() {
     `).join('');
 
     container.innerHTML = `
-        <table class="advanced-table responsive-table">
+      <table class="advanced-table responsive-table">
             <tbody>
                 ${rowsHtml}
             </tbody>
@@ -179,16 +179,6 @@ function escapeHtml(text) {
 }
 
 
-function formatDateToMMDDYYYY(date) {
-    if (typeof date === 'string' && date.includes('/')) {
-        return date; 
-    }
-    const d = new Date(date);
-    const month = String(d.getMonth() + 1).padStart(2, '0');
-    const day = String(d.getDate()).padStart(2, '0');
-    const year = d.getFullYear();
-    return `${month}/${day}/${year}`;
-}
 
 
 document.getElementById('employeeForm').addEventListener('submit', function(e) {
@@ -203,11 +193,10 @@ document.getElementById('employeeForm').addEventListener('submit', function(e) {
     const hobbyCheckboxes = document.querySelectorAll('input[name="hobbies"]:checked');
     const hobbies = Array.from(hobbyCheckboxes).map(cb => cb.value);
 
-    clearError('name', 'nameError');
-    clearError('gender', 'genderError');
-    clearError('dob', 'dobError');
-    clearError('email', 'emailError');
-    clearError('phone', 'phoneError');
+clearError('name', 'nameError');
+clearError('gender', 'genderError');
+clearError('dob', 'dobError');
+clearError('email', 'emailError'); clearError('phone', 'phoneError');
 
     let isValid = true;
 
@@ -266,7 +255,6 @@ document.getElementById('employeeForm').addEventListener('submit', function(e) {
     alert('Employee added successfully!');
 });
 
-// Initialize display on page load
 displayEmployees();
 
 
